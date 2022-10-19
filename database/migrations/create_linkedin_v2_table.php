@@ -6,19 +6,9 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-//  id varchar(255) NOT NULL,
-//  user_mail varchar(255) NOT NULL,
-//  client_id varchar(255),
-//  client_secret varchar(255),
-//  refresh_token varchar(255),
-//  access_token varchar(255),
-//  grant_token varchar(255),
-//  expiry_time varchar(20),
-//  redirect_url varchar(255),
-//  primary key (id)
     public function up()
     {
-        Schema::create('zoho_v3', function (Blueprint $table) {
+        Schema::create('linkedin_v2', function (Blueprint $table) {
             $table->id();
             $table->string('user_mail')->nullable();
             $table->string('client_id')->nullable();
@@ -42,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('zoho_v3');
+        Schema::dropIfExists('linkedin_v2');
     }
 };

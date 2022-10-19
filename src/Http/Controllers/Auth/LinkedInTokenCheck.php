@@ -1,22 +1,22 @@
 <?php
 
-namespace Masmaleki\ZohoAllInOne\Http\Controllers\Auth;
+namespace alimehraei\LinkedInAllInOne\Http\Controllers\Auth;
 
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Masmaleki\ZohoAllInOne\Models\ZohoToken;
+use alimehraei\LinkedInAllInOne\Models\LinkedInToken;
 
-class ZohoTokenCheck
+class LinkedInTokenCheck
 {
 
     public static function getToken()
     {
-        $zoho_token = ZohoToken::query()->latest()->first();
+        $zoho_token = LinkedInToken::query()->latest()->first();
         if ($zoho_token) {
             $expiry_time = Carbon::parse($zoho_token->expiry_time);
             if ($expiry_time->lt(Carbon::now())) {
-                $zoho = new ZohoCustomTokenStore();
+                $zoho = new LinkedInCustomTokenStore();
                 $zoho_token = $zoho->refreshToken($zoho_token->id);
             }
             return $zoho_token;
@@ -27,7 +27,7 @@ class ZohoTokenCheck
 
     public function applicationRegister()
     {
-        return redirect(ZohoConfig::getAuthUrl());
+        return redirect(LinkedInConfig::getAuthUrl());
     }
 
     public static function saveTokens(Request $request)
@@ -35,12 +35,12 @@ class ZohoTokenCheck
         $data = $request->all();
 
 
-        $client_id = config('zoho-v3.client_id');
-        $secret_key = config('zoho-v3.client_secret');
-        $z_url = config('zoho-v3.accounts_url');
-        $z_return_url = config('zoho-v3.redirect_uri');
-        $z_api_url = config('zoho-v3.api_base_url');
-        $z_current_user_email = config('zoho-v3.current_user_email');
+        $client_id = config('linkedin-v2.client_id');
+        $secret_key = config('linkedin-v2.client_secret');
+        $z_url = config('linkedin-v2.accounts_url');
+        $z_return_url = config('linkedin-v2.redirect_uri');
+        $z_api_url = config('linkedin-v2.api_base_url');
+        $z_current_user_email = config('linkedin-v2.current_user_email');
 
         $postInput = [
             'grant_type' => 'authorization_code',
@@ -49,7 +49,7 @@ class ZohoTokenCheck
             'redirect_uri' => $z_return_url,
             'code' => $data['code'],
         ];
-        $zoho = new ZohoCustomTokenStore();
+        $zoho = new LinkedInCustomTokenStore();
         if ($request->has('refresh_token')) {
             $token = $zoho->saveToken($postInput, $request->all(), $client_id, $secret_key, $z_return_url);
         } else {

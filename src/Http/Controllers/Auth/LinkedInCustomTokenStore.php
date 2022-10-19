@@ -1,14 +1,14 @@
 <?php
 
-namespace Masmaleki\ZohoAllInOne\Http\Controllers\Auth;
+namespace alimehraei\LinkedInAllInOne\Http\Controllers\Auth;
 
 use com\zoho\api\authenticator\Token;
 use com\zoho\crm\api\exception\SDKException;
 use GuzzleHttp\Client;
 use Illuminate\Support\Carbon;
-use Masmaleki\ZohoAllInOne\Models\ZohoToken;
+use alimehraei\LinkedInAllInOne\Models\LinkedInToken;
 
-class ZohoCustomTokenStore
+class LinkedInCustomTokenStore
 {
     /**
      * @param $account_url
@@ -32,11 +32,11 @@ class ZohoCustomTokenStore
      * @param $client_id
      * @param $secret_key
      * @param $z_return_url
-     * @return ZohoToken
+     * @return LinkedInToken
      */
     public function saveToken($postInput, $response, $client_id, $secret_key, $z_return_url)
     {
-        $token = new ZohoToken();
+        $token = new LinkedInToken();
         $token->access_token = $response['access_token'];
         $token->refresh_token = $response['refresh_token'] ?? '';
         $token->api_domain = $response['api_domain'];
@@ -74,18 +74,18 @@ class ZohoCustomTokenStore
 
     public function refreshToken($token_id)
     {
-        $token = ZohoToken::find($token_id);
+        $token = LinkedInToken::find($token_id);
         $postInput = [
             'refresh_token' => $token->refresh_token,
             'client_id' => $token->client_id,
             'client_secret' => $token->client_secret,
             'grant_type' => 'refresh_token',
         ];
-        $z_url = config('zoho-v3.accounts_url');
-        $z_return_url = config('zoho-v3.redirect_uri');
-        $z_api_url = config('zoho-v3.api_base_url');
+        $z_url = config('linkedin-v2.accounts_url');
+        $z_return_url = config('linkedin-v2.redirect_uri');
+        $z_api_url = config('linkedin-v2.api_base_url');
 
-        $refreshed_token_resp = self::getToken($z_url, config('zoho-v3.location'), $postInput);
+        $refreshed_token_resp = self::getToken($z_url, config('linkedin-v2.location'), $postInput);
 
         //check the error response
         if (array_key_exists('error', $refreshed_token_resp ?? [])) {

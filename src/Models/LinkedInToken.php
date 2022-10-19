@@ -1,10 +1,10 @@
 <?php
 
-namespace Masmaleki\ZohoAllInOne\Models;
+namespace alimehraei\LinkedInAllInOne\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ZohoToken extends Model
+class LinkedInToken extends Model
 {
     protected $table = 'zoho_v3';
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Masmaleki\ZohoAllInOne\Database\Factories;
+namespace alimehraei\LinkedInAllInOne\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

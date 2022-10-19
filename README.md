@@ -3,16 +3,16 @@
 
 # Zoho all in one for Laravel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/masmaleki/zoho-v3.svg?style=flat-square)](https://packagist.org/packages/masmaleki/zoho-v3)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/masmaleki/zoho-v3/run-tests?label=tests)](https://github.com/masmaleki/zoho-v3/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/masmaleki/zoho-v3/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/masmaleki/zoho-v3/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/masmaleki/zoho-v3.svg?style=flat-square)](https://packagist.org/packages/masmaleki/zoho-v3)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/masmaleki/linkedin-v2.svg?style=flat-square)](https://packagist.org/packages/masmaleki/linkedin-v2)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/masmaleki/linkedin-v2/run-tests?label=tests)](https://github.com/masmaleki/linkedin-v2/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/masmaleki/linkedin-v2/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/masmaleki/linkedin-v2/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/masmaleki/linkedin-v2.svg?style=flat-square)](https://packagist.org/packages/masmaleki/linkedin-v2)
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
 
 ## Support us
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/zoho-v3.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/zoho-v3)
+[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/linkedin-v2.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/linkedin-v2)
 
 We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
 
@@ -23,20 +23,20 @@ We highly appreciate you sending us a postcard from your hometown, mentioning wh
 You can install the package via composer:
 
 ```bash
-composer require masmaleki/zoho-v3
+composer require masmaleki/linkedin-v2
 ```
 
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --tag="zoho-v3-migrations"
+php artisan vendor:publish --tag="linkedin-v2-migrations"
 php artisan migrate
 ```
 
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="zoho-v3-config"
+php artisan vendor:publish --tag="linkedin-v2-config"
 ```
 
 This is the contents of the published config file:
@@ -49,14 +49,14 @@ return [
 Optionally, you can publish the views using
 
 ```bash
-php artisan vendor:publish --tag="zoho-v3-views"
+php artisan vendor:publish --tag="linkedin-v2-views"
 ```
 
 ## Usage
 
 ```php
-$zohoAllInOne = new Masmaleki\ZohoAllInOne();
-echo $zohoAllInOne->echoPhrase('Hello, Masmaleki!');
+$zohoAllInOne = new alimehraei\LinkedInAllInOne();
+echo $zohoAllInOne->echoPhrase('Hello, alimehraei!');
 ```
 
 ## Testing

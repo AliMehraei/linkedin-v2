@@ -1,19 +1,25 @@
 {
-    "name": "masmaleki/zoho-v3",
-    "description": "Zoho all in one for Laravel",
+    "name": "masmaleki/linkedin-v2",
+    "description": "LinkedIn all in one for Laravel",
     "keywords": [
         "masmaleki",
         "laravel",
-        "zoho-v3"
+        "linkedin-v2"
     ],
-    "homepage": "https://github.com/masmaleki/zoho-v3",
+    "homepage": "https://github.com/ali.mehraei/linkedin-v2",
     "license": "MIT",
     "authors": [
         {
             "name": "Mohammad Sadegh Maleki",
             "email": "masmaleki@gmail.com",
             "role": "Developer"
+        },
+        {
+            "name": "Ali Mehraei",
+            "email": "ali.mhraei@gmail.com",
+            "role": "Developer"
         }
+
     ],
     "require": {
         "php": "^8.0",
@@ -31,13 +37,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Masmaleki\\ZohoAllInOne\\": "src",
-            "Masmaleki\\ZohoAllInOne\\Database\\Factories\\": "database/factories"
+            "alimehraei\\LinkedInAllInOne\\": "src",
+            "alimehraei\\LinkedInAllInOne\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Masmaleki\\ZohoAllInOne\\Tests\\": "tests"
+            "alimehraei\\LinkedInAllInOne\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -55,10 +61,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Masmaleki\\ZohoAllInOne\\ZohoAllInOneServiceProvider"
+                "alimehraei\\LinkedInAllInOne\\LinkedInAllInOneServiceProvider"
             ],
             "aliases": {
-                "ZohoAllInOne": "Masmaleki\\ZohoAllInOne\\Facades\\ZohoAllInOne"
+                "LinkedInAllInOne": "LinkedInAllInOne"
             }
         }
     },

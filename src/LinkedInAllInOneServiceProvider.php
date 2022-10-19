@@ -1,13 +1,13 @@
 <?php
 
-namespace Masmaleki\ZohoAllInOne;
+namespace alimehraei\LinkedInAllInOne;
 
 use Illuminate\Support\Facades\Route;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Masmaleki\ZohoAllInOne\Commands\ZohoAllInOneCommand;
+use alimehraei\LinkedInAllInOne\Commands\LinkedInAllInOneCommand;
 
-class ZohoAllInOneServiceProvider extends PackageServiceProvider
+class LinkedInAllInOneServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -17,11 +17,11 @@ class ZohoAllInOneServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('zoho-v3')
+            ->name('linkedin-v2')
             ->hasConfigFile()
             ->hasViews()
             ->hasMigrations('create_zoho_v3_table', 'create_zoho_model_has_roles_table')
-            ->hasCommand(ZohoAllInOneCommand::class);
+            ->hasCommand(LinkedInAllInOneCommand::class);
     }
 
     public function packageBooted()
@@ -42,6 +42,6 @@ class ZohoAllInOneServiceProvider extends PackageServiceProvider
     {
         $this->publishes([
             __DIR__ . '/../database/seeders/ZohoUserHasRoleSeeder.php' => database_path('seeders/ZohoUserHasRoleSeeder.php'),
-        ], 'zoho-v3-seeders');
+        ], 'linkedin-v2-seeders');
     }
 }

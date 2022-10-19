@@ -1,21 +1,21 @@
 <?php
 
-namespace Masmaleki\ZohoAllInOne\Http\Controllers\Records;
-
+namespace alimehraei\LinkedInAllInOne\Http\Controllers\Records;
 
 use GuzzleHttp\Client;
-use Masmaleki\ZohoAllInOne\Http\Controllers\Auth\ZohoTokenCheck;
+use alimehraei\LinkedInAllInOne\Http\Controllers\Auth\LinkedInTokenCheck;
 
-class ZohoManufactureController
+class LinkedInConnectionController
 {
+
 
     public static function getAll($page_token = null)
     {
-        $token = ZohoTokenCheck::getToken();
+        $token = LinkedInTokenCheck::getToken();
         if (!$token) {
             return null;
         }
-        $apiURL = $token->api_domain . '/crm/v3/' . config('zoho-v3.custom_modules_names.manufacture') . '?fields=$review_process,$field_states,Record_Image,$approval_state,Email,Active,Name,Octo_API_Id,$approval,Vendor_Strong_Lines';
+        $apiURL = $token->api_domain . '/crm/v3/Contacts?fields=Title,Contact_Type,Department,Rating,Phone,Fax,Date_of_Birth,Other_Phone,Secondary_Email,Skype_ID,LinkedIn,Mailing_Street,Mailing_City,Mailing_Zip,Mailing_State,Mailing_Country,Description,Last_Activity_Date,Private_Email,Email,First_Name,Last_Name,Mobile,Vendor_Name,Account_Name';
         if ($page_token) {
             $apiURL .= '&page_token=' . $page_token;
         }
@@ -30,5 +30,6 @@ class ZohoManufactureController
         $responseBody = json_decode($response->getBody(), true);
         return $responseBody;
     }
+
 
 }

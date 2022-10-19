@@ -1,5 +1,5 @@
 <?php
 
-use Masmaleki\ZohoAllInOne\Tests\TestCase;
+use alimehraei\LinkedInAllInOne\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);

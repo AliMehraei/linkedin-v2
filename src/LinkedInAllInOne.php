@@ -1,24 +1,24 @@
 <?php
 
-namespace Masmaleki\ZohoAllInOne;
+namespace alimehraei\LinkedInAllInOne;
 
-use Masmaleki\ZohoAllInOne\Http\Controllers\Records\ZohoManufactureController;
-use Masmaleki\ZohoAllInOne\Http\Controllers\Records\ZohoPurchaseOrderController;
-use Masmaleki\ZohoAllInOne\Http\Controllers\Records\ZohoRecordCountController;
-use Masmaleki\ZohoAllInOne\Http\Controllers\Records\ZohoRFQController;
-use Masmaleki\ZohoAllInOne\Http\Controllers\Records\ZohoAccountController;
-use Masmaleki\ZohoAllInOne\Http\Controllers\Records\ZohoContactController;
-use Masmaleki\ZohoAllInOne\Http\Controllers\Records\ZohoInvoiceController;
-use Masmaleki\ZohoAllInOne\Http\Controllers\Records\ZohoProductController;
-use Masmaleki\ZohoAllInOne\Http\Controllers\Records\ZohoQuoteController;
-use Masmaleki\ZohoAllInOne\Http\Controllers\Records\ZohoSaleOrderController;
-use Masmaleki\ZohoAllInOne\Http\Controllers\Records\ZohoTaskController;
-use Masmaleki\ZohoAllInOne\Http\Controllers\Records\ZohoVendorController;
-use Masmaleki\ZohoAllInOne\Http\Controllers\Users\ZohoOrganizationController;
-use Masmaleki\ZohoAllInOne\Http\Controllers\Settings\ZohoRoleController;
-use Masmaleki\ZohoAllInOne\Http\Controllers\Users\ZohoUserController;
+use alimehraei\LinkedInAllInOne\Http\Controllers\Records\ZohoManufactureController;
+use alimehraei\LinkedInAllInOne\Http\Controllers\Records\ZohoPurchaseOrderController;
+use alimehraei\LinkedInAllInOne\Http\Controllers\Records\ZohoRecordCountController;
+use alimehraei\LinkedInAllInOne\Http\Controllers\Records\ZohoRFQController;
+use alimehraei\LinkedInAllInOne\Http\Controllers\Records\ZohoAccountController;
+use alimehraei\LinkedInAllInOne\Http\Controllers\Records\LinkedInConnectionController;
+use alimehraei\LinkedInAllInOne\Http\Controllers\Records\ZohoInvoiceController;
+use alimehraei\LinkedInAllInOne\Http\Controllers\Records\ZohoProductController;
+use alimehraei\LinkedInAllInOne\Http\Controllers\Records\ZohoQuoteController;
+use alimehraei\LinkedInAllInOne\Http\Controllers\Records\ZohoSaleOrderController;
+use alimehraei\LinkedInAllInOne\Http\Controllers\Records\ZohoTaskController;
+use alimehraei\LinkedInAllInOne\Http\Controllers\Records\ZohoVendorController;
+use alimehraei\LinkedInAllInOne\Http\Controllers\Users\ZohoOrganizationController;
+use alimehraei\LinkedInAllInOne\Http\Controllers\Settings\ZohoRoleController;
+use alimehraei\LinkedInAllInOne\Http\Controllers\Users\ZohoUserController;
 
-class ZohoAllInOne
+class LinkedInAllInOne
 {
 
     // start - general functions
@@ -48,52 +48,52 @@ class ZohoAllInOne
     // start - contact functions
     public static function getContacts($page_token = null)
     {
-        return ZohoContactController::getAll($page_token);
+        return LinkedInConnectionController::getAll($page_token);
     }
 
     public static function getContact($zoho_contact_id)
     {
-        return ZohoContactController::getById($zoho_contact_id);
+        return LinkedInConnectionController::getById($zoho_contact_id);
     }
 
     public static function getContactByEmailAddress($zoho_email)
     {
-        return ZohoContactController::getByEmail($zoho_email);
+        return LinkedInConnectionController::getByEmail($zoho_email);
     }
 
     public static function createContact($data = [])
     {
-        return ZohoContactController::create($data);
+        return LinkedInConnectionController::create($data);
     }
 
     public static function updateContact($data = [])
     {
-        return ZohoContactController::updateById($data);
+        return LinkedInConnectionController::updateById($data);
     }
 
     public static function getContactAvatar($zoho_contact_id)
     {
-        return ZohoContactController::getAvatar($zoho_contact_id);
+        return LinkedInConnectionController::getAvatar($zoho_contact_id);
     }
 
     public static function updateContactAvatar($zoho_contact_id, $filePath, $fileMime, $fileUploadedName)
     {
-        return ZohoContactController::updateAvatar($zoho_contact_id, $filePath, $fileMime, $fileUploadedName);
+        return LinkedInConnectionController::updateAvatar($zoho_contact_id, $filePath, $fileMime, $fileUploadedName);
     }
 
     public static function deleteContactAvatar($zoho_contact_id)
     {
-        return ZohoContactController::deleteAvatar($zoho_contact_id);
+        return LinkedInConnectionController::deleteAvatar($zoho_contact_id);
     }
 
     public static function contactsSearch($phrase)
     {
-        return ZohoContactController::search($phrase);
+        return LinkedInConnectionController::search($phrase);
     }
 
     public static function getContactImage($zoho_contact_id)
     {
-        return ZohoContactController::getImage($zoho_contact_id);
+        return LinkedInConnectionController::getImage($zoho_contact_id);
     }
 
     // end - contact functions

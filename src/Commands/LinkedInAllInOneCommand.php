@@ -1,12 +1,12 @@
 <?php
 
-namespace Masmaleki\ZohoAllInOne\Commands;
+namespace alimehraei\LinkedInAllInOne\Commands;
 
 use Illuminate\Console\Command;
 
-class ZohoAllInOneCommand extends Command
+class LinkedInAllInOneCommand extends Command
 {
-    public $signature = 'zoho-v3';
+    public $signature = 'linkedin-v2';
 
     public $description = 'My command';
 
