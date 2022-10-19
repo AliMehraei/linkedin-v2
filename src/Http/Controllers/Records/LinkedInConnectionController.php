@@ -9,20 +9,19 @@ class LinkedInConnectionController
 {
 
 
-    public static function getAll($page_token = null)
+    public static function test()
     {
         $token = LinkedInTokenCheck::getToken();
         if (!$token) {
             return null;
         }
-        $apiURL = $token->api_domain . '/crm/v3/Contacts?fields=Title,Contact_Type,Department,Rating,Phone,Fax,Date_of_Birth,Other_Phone,Secondary_Email,Skype_ID,LinkedIn,Mailing_Street,Mailing_City,Mailing_Zip,Mailing_State,Mailing_Country,Description,Last_Activity_Date,Private_Email,Email,First_Name,Last_Name,Mobile,Vendor_Name,Account_Name';
-        if ($page_token) {
-            $apiURL .= '&page_token=' . $page_token;
-        }
+        $apiURL = 'https://api.linkedin.com/v2/emailAddress';
+
         $client = new Client();
 
         $headers = [
-            'Authorization' => 'Zoho-oauthtoken ' . $token->access_token,
+            'Authorization' => "Bearer $token->access_token",
+           // 'Content-Type' => 'application/json',
         ];
 
         $response = $client->request('GET', $apiURL, ['headers' => $headers]);
