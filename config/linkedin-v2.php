@@ -33,7 +33,7 @@ return [
     |
     */
     'redirect_uri' => env('LINKEDIN_REDIRECT_URI', '/linkedin_oauth2callback'),
-    'oauth_scope' => env('LINKEDIN_OAUTH_SCOPE', 'r_liteprofile,r_emailaddress,w_member_social'),
+    'oauth_scope' => env('LINKEDIN_OAUTH_SCOPE', 'r_liteprofile,r_emailaddress'),
 
     'middleware' => ['web'],
 
