@@ -10,9 +10,9 @@ class LinkedInAllInOne
 
     // start - connections functions
 
-    public static function getModuleCount($moduleName, $type = null, $value = null)
+    public static function test()
     {
-        return LinkedInConnectionController::getAll($moduleName, $type, $value);
+        return LinkedInConnectionController::test();
     }
 
     // end - connections functions

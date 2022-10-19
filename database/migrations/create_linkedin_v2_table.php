@@ -13,9 +13,9 @@ return new class extends Migration
             $table->string('user_mail')->nullable();
             $table->string('client_id')->nullable();
             $table->string('client_secret')->nullable();
-            $table->string('refresh_token')->nullable();
-            $table->string('access_token')->nullable();
-            $table->string('grant_token');
+            $table->longText('refresh_token')->nullable();
+            $table->longText('access_token')->nullable();
+            $table->longText('grant_token');
             $table->string('token_type')->nullable();
             $table->string('expiry_time',20);
             $table->string('accounts_url')->nullable();

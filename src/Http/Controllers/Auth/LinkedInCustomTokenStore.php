@@ -16,11 +16,11 @@ class LinkedInCustomTokenStore
      * @param $postInput
      * @return A Token class instance representing the user token details.
      */
-    public function getToken( $postInput)
+    public function getToken($postInput)
     {
         $apiURL = 'https://www.linkedin.com/oauth/v2/accessToken';
         $client = new Client();
-        $response = $client->request('POST', $apiURL, ['form_params' => $postInput]);
+        $response = $client->request('POST', $apiURL, ['form_params' => $postInput, 'headers' => ['Content-Type' => 'application/x-www-form-urlencoded']]);
         $statusCode = $response->getStatusCode();
         $responseBody = json_decode($response->getBody(), true);
         return $responseBody;
