@@ -34,6 +34,10 @@ class LinkedInTokenCheck
     {
         $data = $request->all();
 
+        if (!array_key_exists('code', $data)) {
+            return redirect('/');
+        }
+
         $client_id = config('linkedin-v2.client_id');
         $secret_key = config('linkedin-v2.client_secret');
         $return_url = config('linkedin-v2.redirect_uri');
