@@ -27,9 +27,6 @@ class LinkedInAllInOneServiceProvider extends PackageServiceProvider
     {
         $this->configureRoutes();
 
-        if ($this->app->runningInConsole()) {
-            $this->publishSeeders();
-        }
     }
 
     protected function configureRoutes()
