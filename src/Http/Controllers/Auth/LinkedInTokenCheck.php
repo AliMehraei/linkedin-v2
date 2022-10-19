@@ -12,14 +12,14 @@ class LinkedInTokenCheck
 
     public static function getToken()
     {
-        $zoho_token = LinkedInToken::query()->latest()->first();
-        if ($zoho_token) {
-            $expiry_time = Carbon::parse($zoho_token->expiry_time);
+        $linkedin_token = LinkedInToken::query()->latest()->first();
+        if ($linkedin_token) {
+            $expiry_time = Carbon::parse($linkedin_token->expiry_time);
             if ($expiry_time->lt(Carbon::now())) {
                 $zoho = new LinkedInCustomTokenStore();
-                $zoho_token = $zoho->refreshToken($zoho_token->id);
+                $linkedin_token = $zoho->refreshToken($linkedin_token->id);
             }
-            return $zoho_token;
+            return $linkedin_token;
         }
         return null;
 
