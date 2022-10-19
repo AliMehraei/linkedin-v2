@@ -1,12 +1,13 @@
 {
-    "name": "masmaleki/linkedin-v2",
+    "name": "alimehraei/linkedin-v2",
     "description": "LinkedIn all in one for Laravel",
     "keywords": [
         "masmaleki",
+        "alimehraei",
         "laravel",
         "linkedin-v2"
     ],
-    "homepage": "https://github.com/ali.mehraei/linkedin-v2",
+    "homepage": "https://github.com/alimehraei/linkedin-v2",
     "license": "MIT",
     "authors": [
         {
@@ -16,7 +17,7 @@
         },
         {
             "name": "Ali Mehraei",
-            "email": "ali.mhraei@gmail.com",
+            "email": "ali.mehraei@gmail.com",
             "role": "Developer"
         }
 
