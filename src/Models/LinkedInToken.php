@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class LinkedInToken extends Model
 {
-    protected $table = 'zoho_v3';
+    protected $table = 'linkedin_v2';
 }

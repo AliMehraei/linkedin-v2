@@ -16,9 +16,9 @@ class LinkedInCustomTokenStore
      * @param $postInput
      * @return A Token class instance representing the user token details.
      */
-    public function getToken($account_url, $location, $postInput)
+    public function getToken( $postInput)
     {
-        $apiURL = $account_url . '/oauth/v2/token';
+        $apiURL = 'https://www.linkedin.com/oauth/v2/accessToken';
         $client = new Client();
         $response = $client->request('POST', $apiURL, ['form_params' => $postInput]);
         $statusCode = $response->getStatusCode();
@@ -34,13 +34,13 @@ class LinkedInCustomTokenStore
      * @param $z_return_url
      * @return LinkedInToken
      */
-    public function saveToken($postInput, $response, $client_id, $secret_key, $z_return_url)
+    public function saveToken($postInput, $response)
     {
         $token = new LinkedInToken();
         $token->access_token = $response['access_token'];
         $token->refresh_token = $response['refresh_token'] ?? '';
-        $token->api_domain = $response['api_domain'];
-        $token->token_type = $response['token_type'];
+        $token->api_domain = $response['api_domain'] ?? null;
+        $token->token_type = $response['token_type'] ?? null;
         $now = Carbon::now();
         $token->expiry_time = $now->add($response['expires_in'], 'seconds');
         $token->grant_token = $postInput['code'];
