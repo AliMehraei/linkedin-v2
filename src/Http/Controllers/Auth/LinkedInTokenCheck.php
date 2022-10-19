@@ -34,27 +34,24 @@ class LinkedInTokenCheck
     {
         $data = $request->all();
 
-
         $client_id = config('linkedin-v2.client_id');
         $secret_key = config('linkedin-v2.client_secret');
-        $z_url = config('linkedin-v2.accounts_url');
-        $z_return_url = config('linkedin-v2.redirect_uri');
-        $z_api_url = config('linkedin-v2.api_base_url');
-        $z_current_user_email = config('linkedin-v2.current_user_email');
+        $return_url = config('linkedin-v2.redirect_uri');
 
         $postInput = [
             'grant_type' => 'authorization_code',
             'client_id' => $client_id,
             'client_secret' => $secret_key,
-            'redirect_uri' => $z_return_url,
+            'redirect_uri' => $return_url,
             'code' => $data['code'],
         ];
-        $zoho = new LinkedInCustomTokenStore();
+
+        $linkedIn = new LinkedInCustomTokenStore();
         if ($request->has('refresh_token')) {
-            $token = $zoho->saveToken($postInput, $request->all(), $client_id, $secret_key, $z_return_url);
+            $token = $linkedIn->saveToken($postInput, $request->all());
         } else {
-            $resp = $zoho->getToken($data['accounts-server'], $data['location'], $postInput);
-            $token = $zoho->saveToken($postInput, $resp, $client_id, $secret_key, $z_return_url);
+            $resp = $linkedIn->getToken($postInput);
+            $token = $linkedIn->saveToken($postInput, $resp);
         }
         $message = 'Token is created now!';
 
